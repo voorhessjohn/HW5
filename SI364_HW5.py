@@ -21,15 +21,15 @@ app.debug = True
 app.config['SECRET_KEY'] = 'hardtoguessstringfromsi364(thisisnotsupersecure)'
 ## Create a database in postgresql in the code line below, and fill in your app's database URI. It should be of the format: postgresql://localhost/YOUR_DATABASE_NAME
 
-## TODO: Create databaes and change the SQLAlchemy Database URI.
+## TODO: Create database and change the SQLAlchemy Database URI.
 ## Your Postgres database should be your uniqname, plus HW5, e.g. "jczettaHW5" or "maupandeHW5"
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/hw5_364"
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # TODO: Add configuration specifications so that email can be sent from this application, like the examples you saw in the textbook and in class. Make sure you've installed the correct library with pip! See textbook.
-# TODO: Make sure that you DO NOT write your actual email password in text!!!!
-# TODO: You will need to use a gmail account to follow the examples in the textbook, and you can create one of those for free, if you want. In THIS application, you should use the username and password from the environment variables, as directed in the textbook. So when WE run your app, we will be using OUR email, not yours.
+# NOTE: Make sure that you DO NOT write your actual email password in text!!!!
+# NOTE: You will need to use a gmail account to follow the examples in the textbook, and you can create one of those for free, if you want. In THIS application, you should use the username and password from the environment variables, as directed in the textbook. So when WE run your app, we will be using OUR email, not yours.
 
 # Set up Flask debug stuff
 manager = Manager(app)
@@ -44,7 +44,7 @@ def make_shell_context():
 # Add function use to manager
 manager.add_command("shell", Shell(make_context=make_shell_context))
 
-# TODO: Write a send_email function here.
+# TODO: Write a send_email function here. (As shown in examples.)
 
 #########
 ######### Everything above this line is important/useful setup, not problem-solving.
@@ -104,7 +104,7 @@ class TweetForm(FlaskForm):
 ## -- Users should be identified by their username (e.g. if there's already a user with that username, return it, otherwise; create it)
 ## -- Hashtags should be identified by their text (e.g. if there's already a hashtag with that text, return it; otherwise, create it)
 
-# TODO: Edit get_or_create_user (AND get_or_create_tweet -- see below) as necessary to store a user's email as well as their twitter username. The get_or_create_user function should accept an email as input and deal with it appropriately to save it as part of a User row. Each user (from now on) has an email!
+# TODO: Edit get_or_create_user (AND get_or_create_tweet -- see below) as necessary to store a user's email as well as their twitter username. The get_or_create_user function should accept an email as input and deal with it appropriately to save it as part of a User row. Each user (from now on) has an email! This should be a small change to how the function currently works.
 def get_or_create_user(db_session, username):
     user = db_session.query(User).filter_by(twitter_username=username).first()
     if user:
@@ -125,7 +125,7 @@ def get_or_create_hashtag(db_session, hashtag_given):
         db_session.commit()
         return hashtag
 
-# TODO: Will need to make changes in this function as well, to address users having emails. See above. What do you need to change to make sure get_or_create_user is invoked correctly, including saving an email?
+# TODO: You will need to make changes in this function as well, to address users having emails. See above. What do you need to change to make sure get_or_create_user is *invoked* correctly, including saving an email? Does anything need to change about the input to get_or_create_tweet, and *its* invocations?
 def get_or_create_tweet(db_session, input_text, username):
     tweet = db_session.query(Tweet).filter_by(text=input_text, user_id=get_or_create_user(db_session, username).id).first()
     if tweet:
@@ -157,6 +157,7 @@ def internal_server_error(e):
 
 # TODO: Edit the index route so that, when a tweet is saved by a certain user, that user gets an email. Use the send_email function (just like the one in the textbook) that you defined above.
 # NOTE: You may want to create a test gmail account to try this out so testing it out is not annoying. You can also use other ways of making test emails easy to deal with, as discussed in class!
+## This is also very similar to example code.
 @app.route('/', methods=['GET', 'POST'])
 def index():
     tweets = Tweet.query.all()

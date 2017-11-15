@@ -25,11 +25,11 @@ Fork and clone this repository. Make edits to it as appropriate (see below), add
 
 Search for all occurrences of `TODO` in the comments in the `.py` files. Fix them as directed to make the application work.
 
-This is a lot less work than your HW4 was, and relies on some of the stuff you've already seen in HW4.
+This is a lot less work than your HW4 was, and relies on some of the stuff you've already seen in HW4 and in class.
 
-### Part 2 (600 points
+### Part 2 (600 points)
 
-Check out the [final project requirements](http://updatelink.com).
+Check out the [final project requirements](https://paper.dropbox.com/doc/SI-364-Fall-2017-Final-Project-l1rUCcyM3tjvSGcjKwatZ).
 
 The file `final_project_app_qs.md` in this repository contains questions about:
 
