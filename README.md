@@ -2,6 +2,14 @@
 
 ### Deadline: Monday, November 27 at 11:59 PM
 
+### IMPORTANT NOTES:
+
+* We will drop the "Part 1" of this assignment if it, on its own, is your lowest scoring assignment this semester. You *may not* drop the Part 2, although you may turn it in late for a deduction if you decide to do that. It's part of leading up to your final project. **The 600 points for Part 2 are required.**
+
+* We will use "Part 2" to approve your final project idea. If we do not approve, we will offer comments so you can come up with an idea that we think will be scoped well to be doable and fulfill all the requirements!
+
+* See below for more details. You will have some opportunities in class session(s) to work on Part 2 with your GSI and classmates' feedback.
+
 ## To Submit
 
 Fork and clone this repository. Make edits to it as appropriate (see below), add, commit, and push them to your fork.
